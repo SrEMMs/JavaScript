@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <title>Desafio 01</title>
+    <style>
+        body{
+            font: normal 15pt Arial;
+            background: rgb(85, 82, 82);
+            color: white;
+        }
+        div#res{
+           color: greenyellow;
+        }
+        div#res2{
+            color: red;
+        }
+        div#res3{
+            color: beige;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>De que país você é?</h1>
+    <input type="text" name="txtpais" id="txtpais">
+    <input type="button" value="Verificar" onclick="Mostrar()">
+    <div id="res3"></div>
+    <div id="res"></div>
+    <div id="res2"></div>
+
+    <script>
+        function Mostrar(){
+            var nacionalidade = window.document.querySelector('input#txtpais')
+            var res = window.document.querySelector('div#res')
+            var res2 = window.document.querySelector('div#res2')
+            var res3 = window.document.querySelector('div#res3')
+            var pais = String(nacionalidade.value)
+            res3.innerHTML = `Seu país é ${pais}.`
+            res.innerHTML = ''
+            res2.innerHTML = ''
+            if(pais == 'Brasil' || pais == 'brasil'){
+                res.innerHTML += `<p>Você é <strong>brasileiro/a.</strong></p>`
+                res.innerHTML += `<img src="imagens/brasil150.png" alt="Brasil">`
+            }
+            else{
+                res2.innerHTML += `<p>Você não é brasileiro/a, pois seu pais de origem é ${pais}.`
+                res2.innerHTML += `<img src="imagens/emoij150.png" alt="Emoji Triste">`
+            }
+        }
+    </script>
+</body>
+</html>
